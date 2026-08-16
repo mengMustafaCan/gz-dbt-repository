@@ -1,0 +1,57 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema:  gz_raw_data
+    tables:
+      - name: product
+        identifier: raw_gz_product
+        description: "Product ID and prices"
+        columns:
+          - name: products_id
+            tests: 
+              - not_null
+          - name: purchSE_PRICE
+            tests:
+              - not_null
+      - name: sales
+        identifier: raw_gz_sales
+        description: "Sales and revenues"
+        columns:
+          - name: date_date
+            tests: 
+              - not_null
+          - name: orders_id
+            tests:
+              - not_null
+          - name: pdt_id
+            tests: 
+              - not_null
+          - name: revenue
+            tests:
+              - not_null  
+          - name: quantity
+            tests:
+              - not_null       
+      - name: ship
+        identifier: raw_gz_ship
+        description: "Shipment fees"
+        columns:
+          - name: orders_id
+            tests: 
+              - unique
+              - not_null
+          - name: shipping_fee
+            tests:
+              - not_null
+          - name: shipping_fee_1
+            tests: 
+              - not_null
+          - name: logCost
+            tests:
+              - not_null  
+          - name: ship_cost
+            tests:
+              - not_null
+              
