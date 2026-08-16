@@ -54,4 +54,13 @@ sources:
           - name: ship_cost
             tests:
               - not_null
+
+models:
+  - name: order_details
+    description: "order details including total qty and revenue"
+    columns:
+      - name: total_revenue
+        tests:
+          - not_null
+          
               
